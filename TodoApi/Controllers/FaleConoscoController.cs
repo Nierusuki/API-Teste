@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace TodoApi.Controllers
         }
 
         // GET: api/FaleConosco
+        [EnableCors]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FaleConosco>>> GetTodoItems()
         {
@@ -28,6 +30,7 @@ namespace TodoApi.Controllers
         }
 
         // GET: api/FaleConosco/5
+        [EnableCors]
         [HttpGet("{id}")]
         public async Task<ActionResult<FaleConosco>> GetFaleConosco(int id)
         {
@@ -44,6 +47,7 @@ namespace TodoApi.Controllers
         // PUT: api/FaleConosco/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [EnableCors]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFaleConosco(int id, FaleConosco faleConosco)
         {
@@ -76,6 +80,7 @@ namespace TodoApi.Controllers
         // POST: api/FaleConosco
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [EnableCors]
         [HttpPost]
         public async Task<ActionResult<FaleConosco>> PostFaleConosco(FaleConosco faleConosco)
         {
@@ -86,6 +91,7 @@ namespace TodoApi.Controllers
         }
 
         // DELETE: api/FaleConosco/5
+        [EnableCors]
         [HttpDelete("{id}")]
         public async Task<ActionResult<FaleConosco>> DeleteFaleConosco(int id)
         {
