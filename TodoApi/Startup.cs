@@ -28,7 +28,9 @@ namespace TodoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<FaleConoscoContext>(opt => opt.UseInMemoryDatabase("Fale_ConoscoDB"));
-            services.AddCors(c => { c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()); 
+            services.AddCors(c => { c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()); 
             });
             services.AddControllers();
         }
@@ -45,7 +47,10 @@ namespace TodoApi
 
             app.UseRouting();
 
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors(options => options.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
 
             app.UseAuthorization();
 
